@@ -1,0 +1,24 @@
+{
+  "name": "itertools.js-es5",
+  "version": "0.0.1",
+  "description": "Python's itertools.js - babelified ES5 version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thefourtheye/itertools.js-es5.git"
+  },
+  "keywords": [
+    "itertools",
+    "es5",
+    "python"
+  ],
+  "author": "Sakthipriyan Vairamani <thechargingvolcano@gmail.com> (thefourtheye)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/thefourtheye/itertools.js-es5/issues"
+  },
+  "homepage": "https://github.com/thefourtheye/itertools.js-es5"
+}
