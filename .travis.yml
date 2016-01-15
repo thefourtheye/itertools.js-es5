@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "1"
+  - "2"
+  - "3"
+  - "4"
+  - "5"
+  - "node"
+after_success:
+  - ./node_modules/.bin/istanbul cover ./node_modules/.bin/mocha --require babel-polyfill tests/**/*.js
+  - cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
+
