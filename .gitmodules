@@ -1,0 +1,3 @@
+[submodule "itertools.js"]
+	path = itertools.js
+	url = https://github.com/thefourtheye/itertools.js.git
