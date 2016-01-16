@@ -18,10 +18,13 @@ describe('[Failure Cases] when cycle is passed', function () {
     }).to.throw(TypeError, 'cycle expected 1 arguments, got 2');
   });
 
-  it('an invalid iterable, it should throw an error', function () {
+  it('invalid iterables, it should throw error', function () {
     expect(function () {
-      return cycle(1);
-    }).to.throw(TypeError, '\'Number\' object is not iterable');
+      return cycle(null);
+    }).to.throw(TypeError, '\'Null\' object is not iterable');
+    expect(function () {
+      return cycle(undefined);
+    }).to.throw(TypeError, '\'Undefined\' object is not iterable');
   });
 });
 

@@ -29,20 +29,30 @@ describe('[Failure Cases] when starmap is passed', function () {
     }).to.throw(TypeError, '\'Number\' object is not callable');
   });
 
-  it('an invalid iterable object, it should throw an error', function () {
+  it('invalid iterable objects, it should throw error', function () {
     expect(function () {
       return starmap(function () {
         return 1;
-      }, 2);
-    }).to.throw(TypeError, '\'Number\' object is not iterable');
+      }, null);
+    }).to.throw(TypeError, '\'Null\' object is not iterable');
+    expect(function () {
+      return starmap(function () {
+        return 1;
+      }, undefined);
+    }).to.throw(TypeError, '\'Undefined\' object is not iterable');
   });
 
   it('a valid iterable object which produces non-iterables, it should throw an error', function () {
     expect(function () {
       return Array.from(starmap(function () {
         return 1;
-      }, [2]));
-    }).to.throw(TypeError, '\'Number\' object is not iterable');
+      }, [null]));
+    }).to.throw(TypeError, '\'Null\' object is not iterable');
+    expect(function () {
+      return Array.from(starmap(function () {
+        return 1;
+      }, [undefined]));
+    }).to.throw(TypeError, '\'Undefined\' object is not iterable');
   });
 });
 

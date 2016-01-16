@@ -11,22 +11,13 @@ describe('[Failure Cases] when accumulate is passed', function () {
     }).to.throw(TypeError, /second argument to accumulate must be a function object/);
   });
 
-  it('an invalid iterable (undefined), it should throw an error', function () {
+  it('invalid iterables, it should throw error', function () {
     expect(function () {
       return accumulate();
     }).to.throw(TypeError, '\'Undefined\' object is not iterable');
-  });
-
-  it('an invalid iterable (null), it should throw an error', function () {
     expect(function () {
       return accumulate(null);
     }).to.throw(TypeError, '\'Null\' object is not iterable');
-  });
-
-  it('an invalid iterable (number), it should throw an error', function () {
-    expect(function () {
-      return accumulate(1);
-    }).to.throw(TypeError, '\'Number\' object is not iterable');
   });
 });
 
@@ -38,6 +29,10 @@ describe('[Happy Cases] when accumulate is passed', function () {
 
   it('a valid strings array, it should accumulate and concatenate them by default', function () {
     expect(Array.from(accumulate(['a', 'b', 'c']))).to.deep.equal(['a', 'ab', 'abc']);
+  });
+
+  it('an invalid iterable (number), should return an empty iterable', function () {
+    expect(Array.from(accumulate(1))).to.deep.equal([]);
   });
 
   it('a valid empty array, it should return an empty iterable', function () {
@@ -59,7 +54,7 @@ describe('[Happy Cases] when accumulate is passed', function () {
   it('a valid object, it should accumulate and return keys and values arrays', function () {
     expect(Array.from(accumulate({
       'a': 'b'
-    }))).to.deep.equal([['a', 'b']]);
+    }))).to.deep.equal(['a']);
   });
 
   it('a valid object with more than one key, with custom function, it should accumulate keys and values', function () {
@@ -68,7 +63,7 @@ describe('[Happy Cases] when accumulate is passed', function () {
       'c': 'd',
       'e': 'f'
     }, function (a, b) {
-      return a.concat(b);
-    }))).to.deep.equal([['a', 'b'], ['a', 'b', 'c', 'd'], ['a', 'b', 'c', 'd', 'e', 'f']]);
+      return a + b;
+    }))).to.deep.equal(['a', 'ac', 'ace']);
   });
 });

@@ -29,12 +29,17 @@ describe('[Failure Cases] when filterfalse is passed', function () {
     }).to.throw(TypeError, '\'Number\' object is not callable');
   });
 
-  it('an invalid iterable object, it should throw an error', function () {
+  it('invalid iterable objects, it should throw error', function () {
     expect(function () {
       return filterfalse(function () {
         return 1;
-      }, 1);
-    }).to.throw(TypeError, '\'Number\' object is not iterable');
+      }, null);
+    }).to.throw(TypeError, '\'Null\' object is not iterable');
+    expect(function () {
+      return filterfalse(function () {
+        return 1;
+      }, undefined);
+    }).to.throw(TypeError, '\'Undefined\' object is not iterable');
   });
 });
 

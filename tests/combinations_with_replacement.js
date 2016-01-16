@@ -4,7 +4,7 @@ var expect = require('chai').expect;
 var combinations = require('../').combinations_with_replacement;
 var ValueError = require('valueerror');
 
-describe('[Failure Cases] when combinations is passed', function () {
+describe('[Failure Cases] when combinations_with_replacement is passed', function () {
 
   it('an invalid integer, it should throw an error', function () {
     expect(function () {
@@ -18,16 +18,17 @@ describe('[Failure Cases] when combinations is passed', function () {
     }).to.throw(ValueError, /r must be non-negative/);
   });
 
-  it('an invalid iterable, it should throw an error', function () {
+  it('invalid iterables, it should throw error', function () {
     expect(function () {
-      return combinations(function () {
-        return 1;
-      }, 1);
-    }).to.throw(TypeError, /'Function' object is not iterable/);
+      return combinations(null, 1);
+    }).to.throw(TypeError, /'Null' object is not iterable/);
+    expect(function () {
+      return combinations(undefined, 1);
+    }).to.throw(TypeError, /'Undefined' object is not iterable/);
   });
 });
 
-describe('[Happy Cases] when combinations is passed', function () {
+describe('[Happy Cases] when combinations_with_replacement is passed', function () {
 
   it('an invalid number of elements (zero), it should return an empty iterable', function () {
     expect(Array.from(combinations('abcd', 0))).to.deep.equal([]);
