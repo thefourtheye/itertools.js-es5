@@ -30,5 +30,8 @@
     "istanbul": "^0.4.2",
     "mocha": "^2.3.4",
     "valueerror": "0.0.2"
+  },
+  "dependencies": {
+    "sane-generator": "0.0.1"
   }
 }
