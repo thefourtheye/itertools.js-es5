@@ -28,7 +28,7 @@
     "chai": "^3.4.1",
     "coveralls": "^2.11.6",
     "istanbul": "^0.4.2",
-    "mocha": "^3.1.2",
+    "mocha": "^3.4.0",
     "valueerror": "0.0.2"
   },
   "dependencies": {
